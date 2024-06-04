@@ -32,6 +32,15 @@ app.use((error, req, res, next) => {
   res.send({error: error.message, name: error.name, message: error.message, table: error.table});
 });
 
+
+// Below code is potentially needed for - Express Route to GET one Item
+
+app.get("/items/:id", (request, response) => {
+  let i = request.params.id -1;
+  response.json(items[i])
+  })
+
 module.exports = app;
+
 
 

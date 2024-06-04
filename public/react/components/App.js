@@ -6,6 +6,7 @@ import apiURL from '../api';
 export const App = () => {
 
 	const [items, setItems] = useState([]);
+	const [currentItem, setCurrentItem] = useState(null);
 
 	
 	useEffect(() => {
@@ -23,6 +24,15 @@ export const App = () => {
 	
 		fetchItems();
 	}, []);
+
+	if (currentItem) {
+		return (
+			<main>
+				<h1>{currentItem.name}</h1>
+				<button onClick={() => setCurrentItem(null)} >All Items </button>
+			</main>
+		)
+	}
 
 	return (
 		<main>	

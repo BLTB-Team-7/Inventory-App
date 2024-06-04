@@ -44,8 +44,13 @@ app.get("/items/:id", (req, res) => {
 
   // Adding an item
   app.post("/addItem", async (req, res) => {
+    try {
     const items = await Item.create(req.body);
     res.json(items);
+    } catch (error)
+  {
+  res.status(500).json({ error: error.message });
+  }  
   });
 
   

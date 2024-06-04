@@ -9,3 +9,88 @@
   height: 350px;
   width: 300px
 }
+
+.container {
+  position: relative;
+  width: 390px;
+  height: 844px;
+  overflow-y: scroll;
+  background: #50B7F1;
+}
+ 
+/* Take Stock */
+.take-stock {
+  position: absolute;
+  width: 334px;
+  height: 77px;
+  left: 30px;
+  top: 240px;
+ 
+  font-family: 'Inter', sans-serif; /* Fallback font */
+  font-style: normal;
+  font-weight: 700;
+  font-size: 96px;
+  line-height: 116px;
+  text-align: center;
+ 
+  color: #FFFCFC;
+  border: 1px solid #FFFCFC;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+ 
+/* Stock */
+.stock {
+  position: absolute;
+  width: 89px;
+  height: 34px;
+  left: 0px;
+  top: 810px;
+ 
+  font-family: 'Inter', sans-serif; /* Fallback font */
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: center;
+  text-decoration-line: underline;
+ 
+  color: #FFFFFF;
+}
+ 
+/* Search */
+.search {
+  position: absolute;
+  width: 113px;
+  height: 38px;
+  left: 144px;
+  top: 810px;
+ 
+  font-family: 'Inter', sans-serif; /* Fallback font */
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: center;
+  text-decoration-line: underline;
+ 
+  color: #FFFFFF;
+}
+ 
+/* Product Volumes */
+.product-volumes {
+  position: absolute;
+  width: 77px;
+  height: 42px;
+  left: 313px;
+  top: 802px;
+ 
+  font-family: 'Inter', sans-serif; /* Fallback font */
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: center;
+  text-decoration-line: underline;
+ 
+  color: #FFFFFF;
+}

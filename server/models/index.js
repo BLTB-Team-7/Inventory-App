@@ -3,15 +3,16 @@ const {sequelize} = require('../db')
 
 
 const Item = sequelize.define("item", {
-  name: Sequelize.STRING,
-  Description: Sequelize.STRING,
-  Price: Sequelize.FLOAT, // Double check
-  Category: Sequelize.STRING,
-  Image: Sequelize.STRING,
+  name: Sequelize.TEXT,
+  description: Sequelize.TEXT,
+  price: Sequelize.REAL, 
+  category: Sequelize.TEXT,
+  image: Sequelize.TEXT,
+  quantity: Sequelize.REAL,
 
 });
 
 module.exports = {
   db: sequelize,
-  Item
+  Item,
 };

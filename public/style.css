@@ -3,3 +3,9 @@
   box-sizing: border-box;
   background-color: rgb(223, 223, 223);
 }
+
+/* Added the below image size for ease of viewing can be removed */
+.image1{
+  height: 350px;
+  width: 300px
+}

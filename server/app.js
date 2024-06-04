@@ -5,6 +5,7 @@ const app = express();
 const morgan = require('morgan');
 const path = require('path');
 const cors = require('cors');
+const { Item } = require("./models/index")
 
 //Allow CORS requests
 app.use(cors());
@@ -35,10 +36,20 @@ app.use((error, req, res, next) => {
 
 // Below code is potentially needed for - Express Route to GET one Item
 
-app.get("/items/:id", (request, response) => {
+app.get("/items/:id", (req, res) => {
   let i = request.params.id -1;
   response.json(items[i])
   })
+
+
+  // Adding an item
+  app.post("/addItem", async (req, res) => {
+    const items = await Item.create(req.body);
+    res.json(items);
+  });
+
+  
+
 
 module.exports = app;
 

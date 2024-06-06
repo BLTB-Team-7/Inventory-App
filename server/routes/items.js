@@ -14,7 +14,7 @@ router.get("/", async (req, res, next) => {
 });
 
 
-// Add /items
+// Read items
 
 router.get("/:id", async (req, res, next) => {
  try {
@@ -30,16 +30,18 @@ router.get("/:id", async (req, res, next) => {
   }
  });
 
-router.post("/", async (req, res) => {
+// Add /items
+
+router.post("/", async (req, res, next) => {
   try {
-  await Item.create(req.body);
-  const items = await Item.findAll({});
-  res.json(items);
-  } catch (error) {
-    res.status(500).json({ error: error.message });
-  }
+  const item = await Item.create(req.body);
+  res.status(201).send(item);
+} catch (error) {
+  next(error);
+}
 });
 
+// Delete code
 
 router.delete("/:id", async (req, res, next) => {
   try {
@@ -56,7 +58,23 @@ router.delete("/:id", async (req, res, next) => {
    }
   });
 
+// Update code
 
+  router.patch("/:id", async (req, res, next) => {
+    try {
+      let item = await Item.findByPk(req.params.id);
+      if (item) {
+        item = await item.update(req.body);
+        res.send(item);
+      }
+      else {
+        res.status(404).send({ error: "Not Found" });
+      }
+      
+     } catch (error) {
+       next(error);
+     }
+    });
 
   
 module.exports = router;

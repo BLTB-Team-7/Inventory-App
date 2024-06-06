@@ -1,46 +1,39 @@
-import React, { useState, useEffect } from 'react';
-import { ItemsList } from './itemsList';
-
-import apiURL from '../api';
-
+import React, { useState } from 'react';
+import {LandingPage} from './LandingPage'
+import {Stock} from './Stock'
+import {AddNewStock} from './AddNewStock'
+import {ProductVolume} from './ProductVolume'
+ 
 export const App = () => {
-
-	const [items, setItems] = useState([]);
-	const [currentItem, setCurrentItem] = useState(null);
-
-	
-	useEffect(() => {
-
-		async function fetchItems(){
-			try {
-				const response = await fetch(`${apiURL}/items`);
-				const itemsData = await response.json();
-				
-				setItems(itemsData);
-			} catch (err) {
-				console.log("Oh no an error! ", err)
-			}
-		}
-	
-		fetchItems();
-	}, []);
-
-	if (currentItem) {
-		return (
-			<main>
-				<h1>{currentItem.name}</h1>
-				<button onClick={() => setCurrentItem(null)} >All Items </button>
-			</main>
-		)
-	}
-
-	return (
-		<main>	
-      		<h1>Take Stock App</h1>
-			<h2>Company Inventory</h2>
-
-			<ItemsList items={items} />
-		</main>
-	)
-		
-}
+  const [page, setPage] = useState("/");
+ 
+  function changePage(page) {
+    setPage(page);
+  }
+ 
+  let view;
+ 
+  if (page === "/") {
+    view = <LandingPage changePage={changePage} />
+  } else if (page === "/stock") {
+    view = <Stock changePage={changePage} />
+} else if (page === "/AddNewStock") {
+    view = <AddNewStock changePage={changePage} />
+} else if (page === "/ProductVolume") {
+    view = <ProductVolume changePage={changePage} />
+  }
+ 
+  return (
+<>
+      {view}
+	  <div className="navbar">
+<button onClick={() => changePage("/")}>Home</button>
+<button onClick={() => changePage("/stock")}>Stock</button>
+<button onClick={() => changePage("/search")}>Search</button>
+<button onClick={() => changePage("/ProductVolume")}>Product Volume</button>
+<button onClick={() => changePage("/AddNewStock")}>Add New Stock</button>
+</div>
+</>
+  );
+};
+ 

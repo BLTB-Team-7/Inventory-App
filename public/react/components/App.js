@@ -3,6 +3,7 @@ import {LandingPage} from './LandingPage'
 import {Stock} from './Stock'
 import {AddNewStock} from './AddNewStock'
 import {ProductVolume} from './ProductVolume'
+import {Search} from './Search'
  
 export const App = () => {
   const [page, setPage] = useState("/");
@@ -21,6 +22,8 @@ export const App = () => {
     view = <AddNewStock changePage={changePage} />
 } else if (page === "/ProductVolume") {
     view = <ProductVolume changePage={changePage} />
+} else if (page === "/Search") {
+    view = <Search changePage={changePage} />
   }
  
   return (
@@ -29,7 +32,7 @@ export const App = () => {
 	  <div className="navbar">
 <button onClick={() => changePage("/")}>Home</button>
 <button onClick={() => changePage("/stock")}>Stock</button>
-<button onClick={() => changePage("/search")}>Search</button>
+<button onClick={() => changePage("/Search")}>Search</button>
 <button onClick={() => changePage("/ProductVolume")}>Product Volume</button>
 <button onClick={() => changePage("/AddNewStock")}>Add New Stock</button>
 </div>

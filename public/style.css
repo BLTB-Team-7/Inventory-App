@@ -1,5 +1,6 @@
 body {
 	background: #4c7aaf;
+	font-family: 'Inter', sans-serif;
   }
    
   /* Take Stock */
@@ -116,3 +117,17 @@ body {
 	height: 300px;
 	width: 250px;
   }
+
+ 
+   
+  .image2 {
+	/* Set image styles */
+	width: 100%; /* 100% of container width */
+	height: auto; /* Maintain aspect ratio */
+	object-fit: cover; /* Scale to fill container, potentially cropping */
+  }
+
+  .stock1 {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr
+	}
